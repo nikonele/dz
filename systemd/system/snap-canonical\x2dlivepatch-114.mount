@@ -1,0 +1,14 @@
+[Unit]
+Description=Mount unit for canonical-livepatch, revision 114
+Before=snapd.service
+After=zfs-mount.service
+
+[Mount]
+What=/var/lib/snapd/snaps/canonical-livepatch_114.snap
+Where=/snap/canonical-livepatch/114
+Type=squashfs
+Options=nodev,ro,x-gdu.hide,x-gvfs-hide
+LazyUnmount=yes
+
+[Install]
+WantedBy=multi-user.target
